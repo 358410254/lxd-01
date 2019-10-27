@@ -25,17 +25,18 @@ public class AddressController {
 	private AddressService addressService;
 
 	/**
-	 * ·µ»ØÈ«²¿ÁĞ±í
+	 * è¿”å›å…¨éƒ¨åˆ—è¡¨
 	 * @return
 	 */
 	@RequestMapping("/findAll")
 	public List<TbAddress> findAll(){
+		//æˆ‘å’Œä½ 
 		return addressService.findAll();
 	}
 
 
 	/**
-	 * ·µ»ØÈ«²¿ÁĞ±í
+	 * è¿”å›å…¨éƒ¨åˆ—è¡¨
 	 * @return
 	 */
 	@RequestMapping("/findPage")
@@ -44,7 +45,7 @@ public class AddressController {
 	}
 
 	/**
-	 * Ôö¼Ó
+	 * å¢åŠ 
 	 * @param address
 	 * @return
 	 */
@@ -52,15 +53,15 @@ public class AddressController {
 	public Result add(@RequestBody TbAddress address){
 		try {
 			addressService.add(address);
-			return new Result(true, "Ôö¼Ó³É¹¦");
+			return new Result(true, "å¢åŠ æˆåŠŸ");
 		} catch (Exception e) {
 			e.printStackTrace();
-			return new Result(false, "Ôö¼ÓÊ§°Ü");
+			return new Result(false, "å¢åŠ å¤±è´¥");
 		}
 	}
 
 	/**
-	 * ĞŞ¸Ä
+	 * ä¿®æ”¹
 	 * @param address
 	 * @return
 	 */
@@ -68,15 +69,15 @@ public class AddressController {
 	public Result update(@RequestBody TbAddress address){
 		try {
 			addressService.update(address);
-			return new Result(true, "ĞŞ¸Ä³É¹¦");
+			return new Result(true, "ä¿®æ”¹æˆåŠŸ");
 		} catch (Exception e) {
 			e.printStackTrace();
-			return new Result(false, "ĞŞ¸ÄÊ§°Ü");
+			return new Result(false, "ä¿®æ”¹å¤±è´¥");
 		}
 	}
 
 	/**
-	 * »ñÈ¡ÊµÌå
+	 * è·å–å®ä½“
 	 * @param id
 	 * @return
 	 */
@@ -86,7 +87,7 @@ public class AddressController {
 	}
 
 	/**
-	 * ÅúÁ¿É¾³ı
+	 * æ‰¹é‡åˆ é™¤
 	 * @param ids
 	 * @return
 	 */
@@ -94,15 +95,15 @@ public class AddressController {
 	public Result delete(Long [] ids){
 		try {
 			addressService.delete(ids);
-			return new Result(true, "É¾³ı³É¹¦");
+			return new Result(true, "åˆ é™¤æˆåŠŸ");
 		} catch (Exception e) {
 			e.printStackTrace();
-			return new Result(false, "É¾³ıÊ§°Ü");
+			return new Result(false, "åˆ é™¤å¤±è´¥");
 		}
 	}
 
 		/**
-	 * ²éÑ¯+·ÖÒ³
+	 * æŸ¥è¯¢+åˆ†é¡µ
 	 * @param brand
 	 * @param page
 	 * @param rows
@@ -113,7 +114,7 @@ public class AddressController {
 		return addressService.findPage(address, page, rows);
 	}
 
-	//¸ù¾İÓÃ»§id£¬»ñÈ¡¶ÔÓ¦µØÖ·¼¯ºÏ
+	//æ ¹æ®ç”¨æˆ·idï¼Œè·å–å¯¹åº”åœ°å€é›†åˆ
     @RequestMapping("/findListByUserId")
     public  List<TbAddress> findListByUserId(){
         String userId = SecurityContextHolder.getContext().getAuthentication().getName();
